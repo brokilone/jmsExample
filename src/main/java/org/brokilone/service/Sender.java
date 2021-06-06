@@ -1,5 +1,6 @@
 package org.brokilone.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.brokilone.destination.DestinationCreator;
 import org.brokilone.utils.JMSProvider;
 import org.slf4j.Logger;
@@ -13,8 +14,8 @@ import javax.jms.Session;
 /**
  * @author Kseniia Ushakova
  */
+@Slf4j
 public class Sender {
-  private Logger logger = LoggerFactory.getLogger(Sender.class);
   private final MessageProducer producer;
   private final Connection connection;
   private final Session session;
@@ -30,7 +31,7 @@ public class Sender {
   }
 
   public void sendMessage(String message) throws JMSException {
-    logger.info("Sending message {} : start", message);
+    log.info("Sending message {} : start", message);
     var textMessage = session.createTextMessage(message);
     producer.send(textMessage);
   }

@@ -1,9 +1,8 @@
 package org.brokilone.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.brokilone.destination.DestinationCreator;
 import org.brokilone.utils.JMSProvider;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +15,8 @@ import javax.jms.TextMessage;
 /**
  * @author Kseniia Ushakova
  */
+@Slf4j
 public class SyncReceiver extends Thread{
-  private Logger logger = LoggerFactory.getLogger(SyncReceiver.class);
 
   private final MessageConsumer consumer;
   private final Connection connection;
@@ -46,19 +45,19 @@ public class SyncReceiver extends Thread{
         var message = consumer.receive();
         if (message instanceof TextMessage) {
           var text = ((TextMessage) message).getText();
-          logger.info("Received message {}", text);
+          log.info("Received message {}", text);
           messageStore.add(text);
         }
         Thread.sleep(1000);
         i++;
       }
     } catch (JMSException | InterruptedException e) {
-      logger.error(e.getLocalizedMessage());
+      log.error(e.getLocalizedMessage());
     } finally {
       try {
         connection.close();
       } catch (JMSException e) {
-        logger.error(e.getLocalizedMessage());
+        log.error(e.getLocalizedMessage());
       }
     }
 

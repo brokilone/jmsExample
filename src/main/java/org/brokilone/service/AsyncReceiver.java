@@ -1,5 +1,6 @@
 package org.brokilone.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.brokilone.destination.DestinationCreator;
 import org.brokilone.utils.JMSProvider;
 import org.slf4j.Logger;
@@ -18,8 +19,8 @@ import javax.jms.TextMessage;
 /**
  * @author Kseniia Ushakova
  */
+@Slf4j
 public class AsyncReceiver implements MessageListener {
-  private Logger logger = LoggerFactory.getLogger(AsyncReceiver.class);
 
   private final Connection connection;
   private final Session session;
@@ -44,7 +45,7 @@ public class AsyncReceiver implements MessageListener {
       String text;
       try {
         text = ((TextMessage) message).getText();
-        logger.info("Received message {}", text);
+        log.info("Received message {}", text);
         messageStore.add(text);
       } catch (JMSException e) {
         e.printStackTrace();

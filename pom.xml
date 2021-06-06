@@ -16,6 +16,10 @@
         <fasterxml.ver>2.12.3</fasterxml.ver>
         <logback.ver>1.2.3</logback.ver>
         <junit.ver>5.7.2</junit.ver>
+        <log-bridge.ver>1.7.30</log-bridge.ver>
+        <lombok.ver>1.18.20</lombok.ver>
+        <gson.ver>2.8.7</gson.ver>
+        <apache.lang3.ver>3.12.0</apache.lang3.ver>
     </properties>
     <dependencies>
         <!--   ActiveMQ   -->
@@ -58,6 +62,12 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.ver}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/log4j-over-slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${log-bridge.ver}</version>
+        </dependency>
 
         <!-- junit-jupiter -->
         <dependency>
@@ -71,6 +81,24 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.ver}</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.ver}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.ver}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.lang3.ver}</version>
         </dependency>
 
     </dependencies>
