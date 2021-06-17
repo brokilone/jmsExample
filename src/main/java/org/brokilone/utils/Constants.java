@@ -11,4 +11,5 @@ public class Constants {
   public static final String TRUSTED_PACKAGE = "org.brokilone";
   public static final String MESSAGE_BROKER_TJM = "message.broker.tjm";
   public static final String PROPERTY_PATH = "jms.properties";
+  public static final String BOOTSTRAP = "mb.kafka.bootstrap";
 }

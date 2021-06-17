@@ -20,6 +20,7 @@
         <lombok.ver>1.18.20</lombok.ver>
         <gson.ver>2.8.7</gson.ver>
         <apache.lang3.ver>3.12.0</apache.lang3.ver>
+        <kafka.ver>2.8.0</kafka.ver>
     </properties>
     <dependencies>
         <!--   ActiveMQ   -->
@@ -54,6 +55,13 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${fasterxml.ver}</version>
+        </dependency>
+
+        <!--    kafka-clients    -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.ver}</version>
         </dependency>
 
         <!-- logback-classic -->
